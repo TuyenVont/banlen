@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TÍNH LƯƠNG THÁNG</title>
+    <style>
+        table {
+            font-size: 25px;
+            width: 1000px;
+            background-color: rgba(230, 162, 25, 0.6);
+            border: 2px solid blue;
+        }
+
+        td {
+            padding: 10px;
+            border: 2px solid blue;
+        }
+
+        button {
+            border-radius: 20px;
+            background-color: white;
+            padding: 5px 15px;
+            cursor: pointer;
+            border: 1px solid blue;
+            
+        }
+
+        input {
+            width: 60%;
+        }
+
+        #heSoLuong {
+            width: 7%;
+        }
+
+        input[type=number]::-webkit-inner-spin-button,
+        input[type=number]::-webkit-outer-spin-button
+        input[type=number].no-arrow::-webkit-inner-spin-button,
+        input[type=number].no-arrow::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        #luongThang {
+            border: none;
+            background: transparent;
+            font-weight: bold;
+            font-size: 35px
+        }
+
+        #luong {
+            -moz-appearance: textfield;
+        }
+
+            #luong::-webkit-inner-spin-button,
+            #luong::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+    </style>
+    <script>
+        function tinhLuong() {
+            var luongCoBan = parseFloat(document.getElementById("luong").value) || 0;
+            var heSoLuong = parseFloat(document.getElementById("heSoLuong").value);
+            var luongThang = luongCoBan * heSoLuong;
+            document.getElementById("luongThang").value = luongThang.toLocaleString();
+        }
+    </script>
+</head>
+<body>
+
+    <form>
+        <table>
+            <tr>
+                <td><b>Lương</b></td>
+                <td><input type="number" id="luong" placeholder="Ghi" required></td>
+            </tr>
+            <tr>
+                <td><b>Hệ số lương</b></td>
+                <td>
+                    <select id="heSoLuong">
+                        <option value="2.5">2.5</option>
+                        <option value="3.0">3.0</option>
+                        <option value="3.2" selected>3.2</option>
+                        <option value="3.5">3.5</option>
+                        <option value="4.0">4.0</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" style="text-align: center;">
+                    <button type="button" onclick="tinhLuong()">Tính lương tháng</button>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Lương tháng</b></td>
+                <td><b><input type="text" id="luongThang" readonly></b></td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+</html>
